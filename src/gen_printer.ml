@@ -530,7 +530,7 @@ module MakeGenerator(Loc : Loc)(Combinators : Combinators) = struct
           let has li = try let _ = Env.lookup_value li env in true with Not_found -> false in
           begin match has bindings, has elements, decl.type_params with
           | true, _, [x] ->
-            let key_path, _ = Env.lookup_type (replace_last li "key") env in
+            let key_path = Env.lookup_type (replace_last li "key") env in
             let printer_names, printer_exprs, print_key =
               gen_constr_printer env printer_names printer_exprs key_path
             in
@@ -545,7 +545,7 @@ module MakeGenerator(Loc : Loc)(Combinators : Combinators) = struct
                       (exp_apply print_list [Combinators.tuple [print_key; print_val]])
                       ~f:(let loc = Loc.loc in Exp.ident ~loc { txt = bindings; loc })))
           | _, true, [] ->
-            let elt_path, _ = Env.lookup_type (replace_last li "elt") env in
+            let elt_path = Env.lookup_type (replace_last li "elt") env in
             let printer_names, printer_exprs, print_elt =
               gen_constr_printer env printer_names printer_exprs elt_path
             in
