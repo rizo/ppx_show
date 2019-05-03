@@ -1,0 +1,17 @@
+opam-version: "2.0"
+maintainer: "Jeremie Dimino <jeremie@dimino.org>"
+authors: ["Jeremie Dimino <jeremie@dimino.org>"]
+homepage: "https://github.com/diml/ppx_show"
+license: "BSD-3-Clause"
+bug-reports: "https://github.com/diml/ppx_show/issues"
+synopsis: "Generic printer for OCaml"
+tags: ["org:diml" "ppx" "generic"]
+
+depends: [
+  "ocaml" {>= "4.03"}
+  "ocamlbuild" {build}
+]
+
+build: [
+  [ "make" "all" ]
+]
