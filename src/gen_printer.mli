@@ -112,7 +112,7 @@ module MakeHelpers(Loc : Loc) : sig
   val typ_var : string -> core_type
   val typ_arrow : core_type -> core_type -> core_type
   val typ_constr : Longident.t -> core_type list -> core_type
-  val typ_poly : string list -> core_type -> core_type
+  val typ_poly : string Asttypes.loc list -> core_type -> core_type
 
   val longident_of_list : string list -> Longident.t
   val longident_of_path : Path.t -> Longident.t

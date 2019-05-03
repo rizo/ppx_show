@@ -303,7 +303,7 @@ module MakeGenerator(Loc : Loc)(Combinators : Combinators) = struct
           let vars = gen_vars args in
           let typ =
             typ_poly
-              vars
+              (List.map (fun x -> Location.mknoloc x) vars)
               (List.fold_right
                  (fun var typ -> typ_arrow (Combinators.typ (typ_var var)) typ)
                  vars
